@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>circle overlay</title>
+    <link href="./main.css" rel="stylesheet" />
+    <!-- This is a development version of Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+    <script src="/lib/reconnecting-websocket.js"></script>
+    <script src="/lib/consts.js"></script>
+    <script src="/lib/utils.js"></script>
+  </head>
+
+  <body>
+    <div id="app" v-cloak>
+              <div class="obsbg">
+      <Background class="box">
+
+        <div class="inner">
+            <div class="mapStats">
+              <div><strong>⭐</strong> {{getToken('mStars')}}</div>
+              <div><strong>CS</strong> {{getToken('mCS')}}</div>
+              <div><strong>AR</strong> {{getToken('mAR')}}</div>
+              <div><strong>OD</strong> {{getToken('mOD')}}</div>
+              <div><strong>HP</strong> {{getToken('mHP')}}</div>
+            </div>
+            <div>
+            <h1 class="ds pp">{{getToken('ppIfMapEndsNow',1)}}pp</h1>
+            <div class="hits" :class="{hide: !isPlayingOrWatching || isMania }">
+              <div class="hit hit-100">
+                <p class="hit-text">{{getToken('c100')}} <p class="small">100</p></p>
+              </div>
+              <div class="hit hit-50">
+                <p class="hit-text">{{getToken('c50')}} <p class="small">50</p></p>
+              </div>
+              <div class="hit hit-miss">
+                <p class="hit-text">{{getToken('miss')}} <p class="small">Miss</p></p>
+              </div>
+            </div>
+        
+           <div class="hits" :class="{hide: !isPlayingOrWatching || !isMania }">
+            <div class="hit hit-p300-mania">
+              <p class="hit-text">{{getToken('geki')}}</p>
+            </div>
+            <div class="hit hit-300-mania">
+              <p class="hit-text">{{getToken('c300')}}</p>
+            </div>
+            <div class="hit hit-200-mania">
+              <p class="hit-text">{{getToken('katsu')}}</p>
+            </div>
+            <div class="hit hit-100-mania">
+              <p class="hit-text">{{getToken('c100')}}</p>
+            </div>
+            <div class="hit hit-50-mania">
+              <p class="hit-text">{{getToken('c50')}}</p>
+            </div>
+            <div class="hit hit-miss-mania">
+              <p class="hit-text">{{getToken('miss')}}</p>
+            </div>
+          </div> 
+          </div>
+          <div class="hit" style="opacity: 0" :class="{hide: isPlayingOrWatching}">
+            <p class="hit-text">0</p>
+          </div>
+          
+        </div>
+
+      </Background>
+    </div>
+          </div>
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
